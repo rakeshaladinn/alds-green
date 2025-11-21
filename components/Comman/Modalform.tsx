@@ -4,15 +4,16 @@ import TextBox from "../Controls/TextBox";
 import useAuth from "@/app/CustomHooks/useAuth";
 import { FaArrowRightLong } from "react-icons/fa6";
 import Button from "../Controls/Button";
+import { RiArrowRightUpLine } from "react-icons/ri";
 
 const Modalform = ({ title }: { title?: any }) => {
   const { EnquiryFormik, EnquiryFormaData } = useAuth();
 
   return (
-    <div className="bg-white/95 p-4  px-5 md:px-6 w-full mt-6 xl:mt-0 rounded-2xl ">
+    <div className="bg-white/95 p-4  px-5 md:px-6 w-full mt-6 xl:pt-6 rounded-2xl ">
       {/* Title */}
       {title && (
-        <h2 className="text-xl xl:text-2xl text-medium-green font-semibold text-center mb-6">
+        <h2 className="text-2xl xl:text-3xl text-medium-green font-semibold text-center mb-6">
           {title}
         </h2>
       )}
@@ -20,7 +21,7 @@ const Modalform = ({ title }: { title?: any }) => {
       {/* FORM */}
       <form
         onSubmit={EnquiryFormik?.handleSubmit}
-        className="grid grid-cols-2 gap-4 w-full "
+        className="grid grid-cols-2 gap-4 w-full pt-3 "
       >
         {/* Mapping all fields */}
         {EnquiryFormaData?.map((item: any, index: number) => (
@@ -29,12 +30,15 @@ const Modalform = ({ title }: { title?: any }) => {
               label={item?.label}
               labelStyle="text-xs font-normal text-gray-500 mb-1"
               placeholder={item?.placeholder}
-              className="w-full px-3 py-3 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-1 focus:ring-[#2E7D32]"
+              // className="w-full px-3 py-3 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-1 focus:ring-[#2E7D32]"
               id={item.id}
               type={item.type}
               formik={EnquiryFormik}
               disabled={item.disabled}
               mainStyle="w-full"
+              input_className={
+                "w-full px-3 py-3 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-1 focus:ring-[#2E7D32]"
+              }
             />
           </div>
         ))}
@@ -54,9 +58,14 @@ const Modalform = ({ title }: { title?: any }) => {
           text={
             EnquiryFormik.isSubmitting ? "Sending..." : " Schedule My Demo "
           }
-          icon={<FaArrowRightLong />}
+          icon={
+            <RiArrowRightUpLine
+              size={30}
+              className="text-white bg-black p-1 rounded-full"
+            />
+          }
           type="submit"
-          className=" w-[80%] px-2 mt-2 bg-[#2E7D32] hover:bg-[#27682B] text-white py-3 rounded-full font-semibold flex items-center justify-center gap-2 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+          className=" w-fit px-7 mt-2 green-gradient text-white py-3 rounded-full font-semibold flex items-center justify-center gap-2 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
           disabled={EnquiryFormik.isSubmitting}
         ></Button>
       </div>

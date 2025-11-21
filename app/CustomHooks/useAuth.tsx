@@ -8,7 +8,6 @@ export default function useAuth() {
   const router = useRouter();
 
   const EnquiryFormaData = [
-    // Full Name (Required)
     {
       id: "fullName",
       type: "text",
@@ -17,35 +16,22 @@ export default function useAuth() {
       placeholder: "Enter full name",
     },
 
-    // Phone Number (Country Code + Number) (Required)
-    // {
-    //   id: "countryCode",
-    //   type: "select",
-    //   required: true,
-    //   placeholder: "+91",
-    //   options: [
-    //     { label: "+91", name: "+91" },
-    //     { label: "+1", name: "+1" },
-    //     { label: "+44", name: "+44" },
-    //   ],
-    // },
+    // PHONE NUMBER (Country Code + Number)
     {
-      id: "phoneNumber",
+      id: "number",
       type: "number",
       label: "Enter Your Number",
       required: true,
       placeholder: "Enter phone number",
     },
 
-    // Company Name
     {
       id: "companyName",
       type: "text",
-      label: "Enter Your company Name",
+      label: "Enter Your Company Name",
       placeholder: "Select",
     },
 
-    // Email
     {
       id: "email",
       label: "Enter Your Email",
@@ -53,7 +39,6 @@ export default function useAuth() {
       placeholder: "Select",
     },
 
-    // Position at Company
     {
       id: "position",
       type: "text",
@@ -61,11 +46,10 @@ export default function useAuth() {
       placeholder: "Select",
     },
 
-    // Country
     {
       id: "country",
       type: "select",
-      label: " Country",
+      label: "Country",
       placeholder: "Select",
       options: [
         { label: "India", name: "India" },
@@ -74,11 +58,10 @@ export default function useAuth() {
       ],
     },
 
-    // Renewable Segment
     {
       id: "renewableSegment",
       type: "select",
-      label: "Your Renewable  Segment",
+      label: "Your Renewable Segment",
       placeholder: "Select",
       options: [
         { label: "Solar", name: "solar" },
@@ -87,7 +70,6 @@ export default function useAuth() {
       ],
     },
 
-    // How you came to know about us?
     {
       id: "source",
       type: "select",
@@ -106,12 +88,15 @@ export default function useAuth() {
    ---------------------------------------- */
   const EnquirySchema = Yup.object().shape({
     fullName: Yup.string().required("Full Name is required"),
+
+    // Country Code Required
     countryCode: Yup.string().required(),
+
+    // Phone Number Required
     phoneNumber: Yup.string()
       .matches(/^[0-9]{6,15}$/, "Invalid phone number")
       .required("Phone Number is required"),
 
-    // Optional fields (no * in screenshot)
     companyName: Yup.string().optional(),
     position: Yup.string().optional(),
     country: Yup.string().optional(),
@@ -122,6 +107,9 @@ export default function useAuth() {
     agree: Yup.boolean().optional(),
   });
 
+  /** ---------------------------------------
+   *  FORMIK SETUP
+   ---------------------------------------- */
   const EnquiryFormik = useFormik({
     initialValues: {
       fullName: "",

@@ -8,4 +8,9 @@ export class ImageAssest {
 
   static Righttop = require("../public/Animation1.png");
   static Leftttop = require("../public/Animation2.png");
+
+  //platefrom preview
+  static lead1 = require("../public/platfrompreview/1.png");
+  static lead2 = require("../public/platfrompreview/2.png");
+  static lead3 = require("../public/platfrompreview/3.png");
 }

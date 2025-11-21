@@ -37,8 +37,13 @@ export default function ContactBeforeDemo() {
         <div className="mt-6 flex justify-center">
           <Button
             text="Contact Us"
-            icon={<RiArrowRightUpLine size={20} />}
-            className="bg-[#4cd137] text-black font-medium px-6 py-2 rounded-full flex items-center gap-2 hover:bg-[#44bd32] transition"
+           icon={
+                    <RiArrowRightUpLine
+                      size={30}
+                      className="text-white bg-black p-1 rounded-full"
+                    />
+                  }
+            className="green-gradient text-black font-medium px-6 py-2 rounded-full flex items-center gap-2 hover:bg-[#44bd32] transition"
           ></Button>
         </div>
 

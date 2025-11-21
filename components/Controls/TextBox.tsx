@@ -63,7 +63,7 @@ const TextBox = ({
     <div className={`sm:space-y-1 ${mainStyle}`}>
       {label && (
         <label
-          className={`${labelStyle} flex text-nowrap  capitalize  text-gray-300`}
+          className={`${labelStyle} flex text-nowrap capitalize text-gray-300`}
           htmlFor={id}
         >
           {label.replaceAll("_", " ")}
@@ -71,34 +71,61 @@ const TextBox = ({
         </label>
       )}
 
-      <div
-        className={`${className} overflow-hidden ${
-          touched && error ? "border " : ""
-        }`}
-      >
+      <div className={` overflow-hidden ${touched && error ? "border " : ""}`}>
         {type !== "color" &&
           (type !== "textarea" ? (
-            <input
-              type={
-                type === "password"
-                  ? !showPassword
-                    ? "password"
-                    : "text"
-                  : type
-              }
-              value={formValue}
-              disabled={disabled}
-              min={min}
-              maxLength={maxLength}
-              onChange={(e: any) => handleChange(e?.target?.value)}
-              onBlur={formik?.handleBlur(id)}
-              placeholder={placeholder}
-              className={` ${input_className}   outline-none w-full text-sm 3xl:text-2xl  `}
-            />
+            id === "number" ? (
+              <div className="flex items-center gap-2 w-full">
+                {/* Country Code Select */}
+                <select
+                  className="px-3 py-3 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-1 focus:ring-[#2E7D32]"
+                  onChange={(e) =>
+                    formik?.setFieldValue("countryCode", e.target.value)
+                  }
+                  value={formik?.values?.countryCode || "+91"}
+                >
+                  <option value="+91"> +91</option>
+                  <option value="+1">+1</option>
+                  <option value="+44"> +44</option>
+                  <option value="+971"> +971</option>
+                </select>
+
+                {/* Phone Number */}
+                <input
+                  type="number"
+                  value={formValue}
+                  disabled={disabled}
+                  min={min}
+                  maxLength={maxLength}
+                  onChange={(e: any) => handleChange(e?.target?.value)}
+                  onBlur={formik?.handleBlur(id)}
+                  placeholder={placeholder}
+                  className={` ${input_className}  outline-none w-full text-sm 3xl:text-2xl`}
+                />
+              </div>
+            ) : (
+              <input
+                type={
+                  type === "password"
+                    ? !showPassword
+                      ? "password"
+                      : "text"
+                    : type
+                }
+                value={formValue}
+                disabled={disabled}
+                min={min}
+                maxLength={maxLength}
+                onChange={(e: any) => handleChange(e?.target?.value)}
+                onBlur={formik?.handleBlur(id)}
+                placeholder={placeholder}
+                className={` ${input_className}   outline-none w-full text-sm 3xl:text-2xl  `}
+              />
+            )
           ) : (
             <textarea
               disabled={disabled}
-              className={` ${input_className}  text-black outline-none w-full 3xl:text-2xl`}
+              className={` ${input_className} text-black outline-none w-full 3xl:text-2xl`}
               rows={rows ? rows : 3}
               onChange={(e: any) => handleChange(e?.target?.value)}
               onBlur={formik?.handleBlur(id)}
@@ -106,15 +133,17 @@ const TextBox = ({
               value={formValue}
             />
           ))}
+
         {type === "password" && (
           <button type="button" onClick={handleTogglePassword}>
             {showPassword ? (
-              <FaEye className="text-black 2xl:text-xl   mr-2" />
+              <FaEye className="text-black 2xl:text-xl mr-2" />
             ) : (
-              <FaEyeSlash className=" text-black 2xl:text-xl mr-2" />
+              <FaEyeSlash className="text-black 2xl:text-xl mr-2" />
             )}
           </button>
         )}
+
         {type == "color" && (
           <div className="flex justify-between w-full ">
             <input
@@ -127,8 +156,9 @@ const TextBox = ({
           </div>
         )}
       </div>
+
       {touched && error && !hideError && (
-        <p className=" text-sm  text-red-500 3xl:text-lg">{error}</p>
+        <p className=" text-sm text-red-500 3xl:text-lg">{error}</p>
       )}
     </div>
   );

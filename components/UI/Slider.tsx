@@ -209,7 +209,7 @@ const Slider: React.FC<SliderProps> = ({
       >
         <div
           ref={sliderRef}
-          className={`flex scroll-smooth transition-transform duration-500 ease-in-out `}
+          className={`flex scroll-smooth transition-transform duration-500 ease-in-out mx-6 `}
           style={{
             transform: `translateX(-${currentSlide * (100 / slidesToShow)}%)`,
             gap: `${gap}px`,
@@ -223,10 +223,13 @@ const Slider: React.FC<SliderProps> = ({
               index === currentSlide + slidesToShow - 1;
             const isDesktop =
               typeof window !== "undefined" && window.innerWidth >= 1024;
+            const isActive = index === currentSlide + 1;
             return (
               <div
                 key={index}
-                className="w-full flex-shrink-0 transition-transform duration-300"
+                className={`w-full flex-shrink-0 transition-transform duration-300  ${
+                  isActive ? "lg:relative lg:z-20 lg:scale-150" : ""
+                }`}
                 style={{
                   flex: `0 0 ${100 / slidesToShow}%`,
                   transform:
@@ -243,14 +246,14 @@ const Slider: React.FC<SliderProps> = ({
       </div>
       {navigatorDots && slidesToShow < children.length && (
         <div
-          className={`absolute  mt-5 md:-bottom-10 -bottom-7   left-0 w-full flex justify-center space-x-2`}
+          className={`absolute  md:bottom-6 -bottom-7   left-0 w-full flex justify-center space-x-2`}
         >
           {Array.from({ length: totalSlides }, (_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
               className={`h-4 w-4 rounded-full ${
-                index === currentSlide ? "bg-primary" : "bg-gray-300"
+                index === currentSlide ? "bg-medium-green" : "bg-white"
               }`}
             ></button>
           ))}

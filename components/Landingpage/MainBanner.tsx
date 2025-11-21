@@ -21,9 +21,7 @@ const MainBanner = () => {
   bg-[linear-gradient(to_bottom,#031C43_0%,#031C43CC_30%,#BDBDBD0D_100%)]"
       ></div>
 
-      {/* MAIN CONTENT WRAPPER */}
       <div className="relative z-30 w-full px-4 sm:px-6 lg:px-10 xl:px-12 py-10 flex flex-col xl:flex-row items-start gap-10">
-        {/* LEFT CONTENT */}
         <div className="w-full xl:w-[50%] text-white space-y-6 mt-8">
           <h1 className="text-2xl md:text-3xl font-semibold leading-snug max-w-2xl">
             Schedule a Free Demo of ALDS Green
