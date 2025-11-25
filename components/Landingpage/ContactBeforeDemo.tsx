@@ -22,7 +22,7 @@ export default function ContactBeforeDemo() {
       {/* Content */}
       <div className="relative z-10 text-center text-white px-6 max-w-4xl mx-auto">
         {/* Heading */}
-        <h2 className="text-2xl md:text-3xl font-semibold">
+        <h2 className="text-2xl md:text-3xl xl:text-4xl font-semibold">
           Have questions before booking demo?
         </h2>
 
@@ -37,13 +37,13 @@ export default function ContactBeforeDemo() {
         <div className="mt-6 flex justify-center">
           <Button
             text="Contact Us"
-           icon={
-                    <RiArrowRightUpLine
-                      size={30}
-                      className="text-white bg-black p-1 rounded-full"
-                    />
-                  }
-            className="green-gradient text-black font-medium px-6 py-2 rounded-full flex items-center gap-2 hover:bg-[#44bd32] transition"
+            icon={
+              <RiArrowRightUpLine
+                size={30}
+                className="text-white bg-black p-1 rounded-full"
+              />
+            }
+            className="green-gradient text-white font-medium px-4 items-center py-2 rounded-full  gap-6 hover:bg-[#44bd32] transition"
           ></Button>
         </div>
 

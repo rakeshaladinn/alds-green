@@ -228,7 +228,7 @@ const Slider: React.FC<SliderProps> = ({
               <div
                 key={index}
                 className={`w-full flex-shrink-0 transition-transform duration-300  ${
-                  isActive ? "lg:relative lg:z-20 lg:scale-150" : ""
+                  isActive ? "lg:relative lg:z-20 lg:scale-170" : ""
                 }`}
                 style={{
                   flex: `0 0 ${100 / slidesToShow}%`,

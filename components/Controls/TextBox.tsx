@@ -71,14 +71,17 @@ const TextBox = ({
         </label>
       )}
 
-      <div className={` overflow-hidden ${touched && error ? "border " : ""}`}>
+      <div
+        className={` rounded 
+  ${touched && error ? "border border-red-500" : ""}`}
+      >
         {type !== "color" &&
           (type !== "textarea" ? (
             id === "number" ? (
               <div className="flex items-center gap-2 w-full">
                 {/* Country Code Select */}
                 <select
-                  className="px-3 py-3 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-1 focus:ring-[#2E7D32]"
+                  className="px-3 py-3 border border-gray-300 rounded-md text-xs focus:outline-none focus:ring-1 focus:ring-[#2E7D32]"
                   onChange={(e) =>
                     formik?.setFieldValue("countryCode", e.target.value)
                   }
@@ -100,7 +103,7 @@ const TextBox = ({
                   onChange={(e: any) => handleChange(e?.target?.value)}
                   onBlur={formik?.handleBlur(id)}
                   placeholder={placeholder}
-                  className={` ${input_className}  outline-none w-full text-sm 3xl:text-2xl`}
+                  className={` ${input_className}   outline-none w-full text-xs `}
                 />
               </div>
             ) : (
@@ -119,13 +122,13 @@ const TextBox = ({
                 onChange={(e: any) => handleChange(e?.target?.value)}
                 onBlur={formik?.handleBlur(id)}
                 placeholder={placeholder}
-                className={` ${input_className}   outline-none w-full text-sm 3xl:text-2xl  `}
+                className={` ${input_className}   outline-none w-full text-xs   `}
               />
             )
           ) : (
             <textarea
               disabled={disabled}
-              className={` ${input_className} text-black outline-none w-full 3xl:text-2xl`}
+              className={` ${input_className} text-black outline-none w-full`}
               rows={rows ? rows : 3}
               onChange={(e: any) => handleChange(e?.target?.value)}
               onBlur={formik?.handleBlur(id)}

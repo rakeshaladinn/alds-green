@@ -20,13 +20,13 @@ export default function DemoSection() {
   ];
 
   return (
-    <section className="py-16 w-full  px-4 md:px-10 xl:px-12">
+    <section className="py-10 md:py-16 w-full  px-4 md:px-10 xl:px-12">
       {/* Heading */}
       <div className="text-center mb-12">
-        <h2 className="text-2xl font-semibold text-gray-900">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-black">
           What you’ll get in the demo
         </h2>
-        <p className="text-sm text-gray-500 mt-2">
+        <p className="text-base lg:text-lg mt-2">
           What’s Included in Your Personalized Demo
         </p>
       </div>

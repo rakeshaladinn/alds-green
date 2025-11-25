@@ -138,6 +138,10 @@ html {
 
 body {
   font-family: "Bahnschrift", sans-serif !important;
+  max-width: 2100px;
+  margin: auto;
+  padding: 0;
+
 }
 
 .font-bahnschrift {

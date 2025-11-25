@@ -17,8 +17,12 @@ export default function PlatformPreview() {
 
   return (
     <section className="w-full bg-[#005242] py-20 px-6 flex flex-col items-center overflow-hidden ">
-      <h2 className="text-white text-3xl font-semibold">Platfrom Preview</h2>
-      <p className="mt-2 mb-14 text-white">A Quick Look Inside ALDS Green</p>
+      <h2 className="text-white text-2xl md:text-3xl lg:text-4xl  font-semibold">
+        Platfrom Preview
+      </h2>
+      <p className="mt-2 text-base md:text-lg lg:text-xl mb-10 text-white font-[300]">
+        A Quick Look Inside ALDS Green
+      </p>
 
       <Slider
         breakpoints={{ lg: 3, xl: 3, md: 2 }}
@@ -29,7 +33,7 @@ export default function PlatformPreview() {
         {images.map((src, i) => (
           <div
             key={i}
-            className="relative lg:my-24 mb-1 mx-4 md:mx-6 overflow-hidden"
+            className="relative lg:my-32 2xl:my-40 3xl:my-48 mb-1 mx-4 md:mx-6 overflow-hidden"
           >
             <Image
               src={src}
@@ -52,7 +56,7 @@ export default function PlatformPreview() {
             className="text-white bg-black p-1 rounded-full"
           />
         }
-        className="mt-14 green-gradient text-white px-6 py-3 rounded-full flex items-center gap-2 hover:bg-emerald-700 transition"
+        className="mt-14 green-gradient text-white px-6 py-3 rounded-full flex items-center gap-6 hover:bg-emerald-700 transition"
       ></Button>
     </section>
   );

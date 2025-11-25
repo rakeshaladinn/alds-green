@@ -32,7 +32,7 @@ export default function Button({
         <Link
           onClick={() => setLinkLoading(true)}
           href={link}
-          className={` whitespace-nowrap  hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out p-2 cursor-pointer flex items-center justify-center gap-2 disabled:cursor-not-allowed ${className}`}
+          className={` whitespace-nowrap  hover:scale-105 active:scale-95 transition-all duration-200 ease-in-out p-2 cursor-pointer flex items-center justify-center  disabled:cursor-not-allowed ${className}`}
         >
           {text}
           {icon}

@@ -17,10 +17,10 @@ export default function RenewablesSection() {
     <section className="w-full bg-[#F1F3F0] py-16 px-6">
       {/* Heading */}
       <div className="text-center">
-        <h2 className="text-2xl font-semibold text-gray-900">
+        <h2 className="text-2xl md:text-3xl xl:text-4xl font-semibold text-gray-900">
           Built for Renewables
         </h2>
-        <p className="text-gray-600 text-sm mt-2">
+        <p className="text-black text-sm mt-2">
           Tailored to Every Renewable Energy Business
         </p>
       </div>
@@ -58,7 +58,7 @@ export default function RenewablesSection() {
       </div>
 
       {/* Bottom description */}
-      <p className="text-center text-gray-600 text-sm mt-10 max-w-xl mx-auto">
+      <p className="text-center text-black text-base xl:text-lg mt-10 max-w-2xl mx-auto">
         ALDS Green adapts to workflows of various renewable energy segments.
         During the demo, we’ll show the modules that match your business.
       </p>
